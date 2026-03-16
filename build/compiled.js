@@ -5,11 +5,11 @@
     const effectiveTitle = title || "Sidebar Embed";
     const effectiveOpenedAt = openedAt || (/* @__PURE__ */ new Date()).toISOString();
     return [
-      '<div class="sidebar-calendar-root" style="color: #000;font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; padding: 12px;">',
-      `  <h1 style="font-size: 1.2rem; margin: 0 0 8px;">${effectiveTitle}</h1>`,
-      `  <p style="margin: 0 0 12px; color: #666;">Opened at: <code>${effectiveOpenedAt}</code></p>`,
-      '  <div class="sidebar-calendar-content" style="font-size: 0.9rem; line-height: 1.4;">',
-      "    <p>This is your custom sidebar embed.</p>",
+      '<div class="sidebar-calendar-root" style="color: inherit; font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; padding: 12px;">',
+      `  <h1 style="font-size: 1.2rem; margin: 0 0 8px; color: inherit;">${effectiveTitle}</h1>`,
+      `  <p style="margin: 0 0 12px; opacity: 0.8;">Opened at: <code>${effectiveOpenedAt}</code></p>`,
+      '  <div class="sidebar-calendar-content" style="font-size: 0.9rem; line-height: 1.4; color: inherit;">',
+      '    <p style="margin: 0 0 8px;">This is your custom sidebar embed.</p>',
       '    <ul style="padding-left: 1.2rem; margin: 0;">',
       "      <li>Customize this content in <code>renderEmbed</code>.</li>",
       "      <li>You can add tables, checklists, and a calendar UI here.</li>",
