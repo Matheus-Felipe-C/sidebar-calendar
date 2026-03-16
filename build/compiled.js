@@ -1,6 +1,6 @@
 (() => {
   // lib/jsx-runtime.js
-  var Fragment = /* @__PURE__ */ Symbol.for("jsx.fragment");
+  var Fragment2 = /* @__PURE__ */ Symbol.for("jsx.fragment");
   function flatten(children) {
     const out = [];
     for (const c of children) {
@@ -26,7 +26,7 @@
     if (typeof node === "string" || typeof node === "number") return escapeHtml(node);
     if (Array.isArray(node)) return node.map(renderToHtml).join("");
     const { type, props, children } = node;
-    if (type === Fragment) return (children || []).map(renderToHtml).join("");
+    if (type === Fragment2) return (children || []).map(renderToHtml).join("");
     const attrs = Object.entries(props).filter(([k, v]) => v != null && v !== false && k !== "children").map(([k, v]) => {
       if (k === "class") return `class="${escapeHtml(v)}"`;
       if (k === "className") return `class="${escapeHtml(v)}"`;
@@ -42,30 +42,30 @@
   // lib/plugin.js
   function SidebarRoot(props) {
     const { title, openedAt } = props;
-    return /* @__PURE__ */ h(
-      "div",
-      {
-        class: "sidebar-calendar-root",
-        style: "background-color: #fff; font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; padding: 12px;"
-      },
-      /* @__PURE__ */ h(
-        "h1",
-        {
-          style: "font-size: 1.2rem; margin: 0 0 8px; color: inherit;"
-        },
-        title
-      ),
-      /* @__PURE__ */ h("p", { style: "margin: 0 0 12px; opacity: 0.8;" }, "Opened at: ", /* @__PURE__ */ h("code", null, openedAt)),
-      /* @__PURE__ */ h(
-        "div",
-        {
-          class: "sidebar-calendar-content",
-          style: "font-size: 0.9rem; line-height: 1.4; color: inherit;"
-        },
-        /* @__PURE__ */ h("p", { style: "margin: 0 0 8px;" }, "This is your custom sidebar embed (JSX, no React/Preact)."),
-        /* @__PURE__ */ h("ul", { style: "padding-left: 1.2rem; margin: 0;" }, /* @__PURE__ */ h("li", null, "Start turning this into a calendar UI."), /* @__PURE__ */ h("li", null, "Next step: add views & interactions via components."))
-      )
-    );
+    return /* @__PURE__ */ h(Fragment, null, /* @__PURE__ */ h("style", null, `
+          .sidebar-calendar-root {
+            background-color: #fff;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            padding: 12px;
+          }
+
+          .sidebar-calendar-title {
+            font-size: 1.2rem;
+            margin: 0 0 8px;
+            color: inherit;
+          }
+
+          .sidebar-calendar-meta {
+            margin: 0 0 12px;
+            opacity: 0.8;
+          }
+
+          .sidebar-calendar-content {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: inherit;
+          }
+        `), /* @__PURE__ */ h("div", { class: "sidebar-calendar-root" }, /* @__PURE__ */ h("h1", { class: "sidebar-calendar-title" }, title), /* @__PURE__ */ h("p", { class: "sidebar-calendar-meta" }, "Opened at: ", /* @__PURE__ */ h("code", null, openedAt)), /* @__PURE__ */ h("div", { class: "sidebar-calendar-content" }, /* @__PURE__ */ h("p", null, "This is your custom sidebar embed (JSX, no React/Preact)."), /* @__PURE__ */ h("ul", null, /* @__PURE__ */ h("li", null, "Start turning this into a calendar UI."), /* @__PURE__ */ h("li", null, "Next step: add views & interactions via components.")))));
   }
   var plugin = {
     // Shown in Quick Open as "Open Sidebar"
