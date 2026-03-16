@@ -5,7 +5,7 @@
     const effectiveTitle = title || "Sidebar Embed";
     const effectiveOpenedAt = openedAt || (/* @__PURE__ */ new Date()).toISOString();
     return [
-      '<div class="sidebar-calendar-root" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; padding: 12px;">',
+      '<div class="sidebar-calendar-root" style="color: #000;font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; padding: 12px;">',
       `  <h1 style="font-size: 1.2rem; margin: 0 0 8px;">${effectiveTitle}</h1>`,
       `  <p style="margin: 0 0 12px; color: #666;">Opened at: <code>${effectiveOpenedAt}</code></p>`,
       '  <div class="sidebar-calendar-content" style="font-size: 0.9rem; line-height: 1.4;">',
