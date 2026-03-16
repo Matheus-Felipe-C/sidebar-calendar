@@ -29,7 +29,8 @@ const result = await esbuild.build({
   jsxFragment: "Fragment",
   loader: {
     ".html": "text",
-    ".jsx": "jsx"
+    ".jsx": "jsx",
+    ".js": "jsx"
   }
 })
 

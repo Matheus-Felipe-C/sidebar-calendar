@@ -536,7 +536,7 @@ function G2(e2) {
   return null !== e2 && "object" == typeof e2 && "function" == typeof e2.peek && "value" in e2;
 }
 
-// lib/renderEmbed.jsx
+// lib/plugin.js
 function SidebarRoot(props) {
   const { title, openedAt } = props;
   return /* @__PURE__ */ _(
@@ -564,16 +564,6 @@ function SidebarRoot(props) {
     )
   );
 }
-function renderEmbedContent(args) {
-  const { title, openedAt } = args || {};
-  const effectiveTitle = title || "Sidebar Calendar";
-  const effectiveOpenedAt = openedAt || (/* @__PURE__ */ new Date()).toISOString();
-  return B2(
-    /* @__PURE__ */ _(SidebarRoot, { title: effectiveTitle, openedAt: effectiveOpenedAt })
-  );
-}
-
-// lib/plugin.js
 var plugin = {
   // Shown in Quick Open as "Open Sidebar"
   async appOption(app) {
@@ -588,7 +578,12 @@ var plugin = {
   },
   // Called whenever the sidebar embed should render/re-render
   renderEmbed(app, args) {
-    return renderEmbedContent(args);
+    const { title, openedAt } = args || {};
+    const effectiveTitle = title || "Sidebar Calendar";
+    const effectiveOpenedAt = openedAt || (/* @__PURE__ */ new Date()).toISOString();
+    return B2(
+      /* @__PURE__ */ _(SidebarRoot, { title: effectiveTitle, openedAt: effectiveOpenedAt })
+    );
   }
 };
 var plugin_default = plugin;
