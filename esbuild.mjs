@@ -3,9 +3,8 @@ import esbuild from "esbuild"
 const result = await esbuild.build({
   entryPoints: ['lib/plugin.js'],
   bundle: true,
-  format: "iife",
+  format: "cjs",
   outfile: "build/compiled.js",
-  packages: "external",
   platform: "node",
   write: true,
   jsxFactory: "h",
