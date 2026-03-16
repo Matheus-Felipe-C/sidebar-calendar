@@ -8,6 +8,10 @@ const result = await esbuild.build({
     packages: "external",
     platform: "node",
     write: true,
+
+    loader: {
+        ".html": "text",
+    },  
 })
 
 console.log("Build result", result)
