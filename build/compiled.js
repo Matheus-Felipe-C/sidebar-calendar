@@ -61,7 +61,7 @@
           }
 
           .sidebar-calendar-content {
-            font-size: 2rem;
+            font-size: 0.9rem;
             line-height: 1.4;
             color: inherit;
           }
