@@ -5,15 +5,13 @@ const result = await esbuild.build({
   bundle: true,
   format: "iife",
   outfile: "build/compiled.js",
+  packages: "external",
   platform: "node",
   write: true,
-  jsxFactory: "h",
-  jsxFragment: "Fragment",
   loader: {
     ".html": "text",
-    ".jsx": "jsx",
-    ".js": "jsx"
+    ".css": "text",
   }
-})
+});
 
 console.log("Build result", result)
