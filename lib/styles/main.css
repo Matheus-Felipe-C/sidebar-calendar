@@ -1,19 +1,10 @@
-.sidebar-calendar-root {
-  font-family: system-ui, sans-serif;
-  padding: 12px;
-  background: #fff;
+.root-layout {
+    font-family: system-ui, sans-serif;
+    padding: 12px;
+    background: #fff;
 }
 
-.header {
-  font-size: 1.2rem;
-  margin-bottom: 8px;
-}
-
-.event-list {
-  padding-left: 1rem;
-  margin: 0;
-}
-
-.event-item {
-  margin-bottom: 6px;
+.heading {
+    text-decoration: underline;
+    color: #fff;
 }
