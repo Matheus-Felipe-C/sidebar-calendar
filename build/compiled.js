@@ -16,7 +16,7 @@
     return `
         <style>
             ${main_default}
-        </style
+        </style>
         ${Layout()}
     `;
   }
